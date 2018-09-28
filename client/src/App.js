@@ -25,7 +25,7 @@ class App extends Component {
       const ExchangeContract = truffleContract(Exhange);
       ExchangeContract.setProvider(web3.currentProvider);
       const exchangeInstance = await ExchangeContract.deployed();
-
+      console.log("Running")
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
@@ -45,7 +45,7 @@ class App extends Component {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
     return (
-        <Market accounts={this.state.accounts || []} tokenInstance={this.state.tokenInstance} exchangeInstance={this.state.exchangeInstance}/>
+        <Market web3={this.state.web3} account={this.state.accounts || []} tokenInstance={this.state.tokenInstance} exchangeInstance={this.state.exchangeInstance}/>
     );
   }
 }

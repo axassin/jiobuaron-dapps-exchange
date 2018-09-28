@@ -4,11 +4,17 @@ import React, {Component} from 'react'
 class SendToken extends Component {
     state = {
         address: "",
-        token: 0
+        token: 0,
     }
 
-    sendToken() {
-        console.log(this.state.address)
+    async sendToken() {
+        const result = await this.props.tokenInstance.transfer(this.state.address, this.state.token, {from:this.props.acc}) 
+        if(result){
+            // this.props.setBalance()
+        } else {
+            alert("Transfer Amount Failed")
+        }
+        
     }
     render() {
         return(
@@ -27,7 +33,6 @@ class SendToken extends Component {
                     </button>
                </div>
             </div>
-
         )
     }
 }

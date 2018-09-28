@@ -79,7 +79,7 @@ contract Exchange is Owned {
          require(ethBalance[msg.sender] - amountInWei <= ethBalance[msg.sender]);
          ethBalance[msg.sender] -= amountInWei;
          emit WithdrawEther(msg.sender, amountInWei, now);
-        //  msg.sender.transfer(amountInWei);
+         msg.sender.transfer(amountInWei);
     }
     
     function getEthBalanceInWei() view returns (uint) {
@@ -492,7 +492,6 @@ contract Exchange is Owned {
                 } else {
                    whilePrice = tokens[symbolIndex].buyBook[whilePrice].higherPrice; 
                 }
-                
                 counter++;
             }
         }
