@@ -55,7 +55,7 @@ class Market extends Component {
         return(
             <div>
                 <div>
-                    {`Current Token: ${this.state.balance}`}
+                    {`Current ERC20 Token: ${this.state.balance}`}
                 </div>
                 <div>
                     {`Current Wei balance: ${this.state.ethBalance}`}
